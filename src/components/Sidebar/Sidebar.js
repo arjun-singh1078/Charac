@@ -16,7 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import classes from "./Sidebar.module.css";
 
-const routes = [
+const firstDataSet = [
   {
     path: "/",
     name: "Dashboard",
@@ -54,7 +54,7 @@ const routes = [
   },
 ];
 
-const routes1 = [
+const secondDataSet = [
   {
     path: "/profile",
     name: "Profile",
@@ -132,7 +132,7 @@ const Sidebar = (props) => {
         <div className={classes.wrapper}>
           <div className={classes.group_set}>
             <div className={classes.first_set}>
-              {routes.map((route) => (
+              {firstDataSet.map((route) => (
                 <Link
                   to={route.path}
                   key={route.name}
@@ -158,7 +158,7 @@ const Sidebar = (props) => {
             </div>
 
             <div className={classes.second_set}>
-              {routes1.map((route) => (
+              {secondDataSet.map((route) => (
                 <Link
                   to={route.path}
                   key={route.name}
