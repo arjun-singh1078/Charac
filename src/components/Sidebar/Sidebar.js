@@ -13,8 +13,8 @@ import {
   FaUserCircle,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import classes from "./Sidebar.module.css";
+import { NavLink } from "react-router-dom";
+import "./Sidebar.css";
 
 const firstDataSet = [
   {
@@ -105,14 +105,15 @@ const Sidebar = (props) => {
       },
     },
   };
+
   return (
-    <div className={classes.main_container}>
+    <div className={"main_container"}>
       <motion.div
         animate={{ width: isOpen ? "200px" : "45px" }}
-        className={classes.sidebar}
+        className={"sidebar"}
       >
-        <div className={classes.top_section}>
-          <div className={classes.brand_icon}>
+        <div className="top_section">
+          <div className="brand_icon">
             {<FaDharmachakra onClick={toggleNav} />}
           </div>
           <AnimatePresence>
@@ -122,24 +123,24 @@ const Sidebar = (props) => {
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                className={classes.logo_name}
+                className="logo_name"
               >
                 Charac
               </motion.h1>
             )}
           </AnimatePresence>
         </div>
-        <div className={classes.wrapper}>
-          <div className={classes.group_set}>
-            <div className={classes.first_set}>
+        <div className="wrapper">
+          <div className="group_set">
+            <div className="first_set">
               {firstDataSet.map((route) => (
-                <Link
+                <NavLink
                   to={route.path}
                   key={route.name}
-                  className={classes.link}
+                  className="link"
                   style={{ padding: isOpen ? "11px 20px" : "11px 10px" }}
                 >
-                  <div className={classes.icon}>{route.icon}</div>
+                  <div className="icon">{route.icon}</div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -147,25 +148,25 @@ const Sidebar = (props) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className={classes.link_name}
+                        className="link_name"
                       >
                         {route.name}
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </Link>
+                </NavLink>
               ))}
             </div>
 
-            <div className={classes.second_set}>
+            <div className="second_set">
               {secondDataSet.map((route) => (
-                <Link
+                <NavLink
                   to={route.path}
                   key={route.name}
-                  className={classes.link}
+                  className="link"
                   style={{ padding: isOpen ? "11px 20px" : "11px 10px" }}
                 >
-                  <div className={classes.icon}>{route.icon}</div>
+                  <div className="icon">{route.icon}</div>
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -173,13 +174,13 @@ const Sidebar = (props) => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className={classes.link_name}
+                        className="link_name"
                       >
                         {route.name}
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </Link>
+                </NavLink>
               ))}
             </div>
           </div>
