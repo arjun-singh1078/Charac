@@ -9,13 +9,16 @@
 
 .main_container {
   display: flex;
-  height: 100%;
+  height: 100vh;
 }
 
 main {
   padding: 15px;
   width: 100%;
-  margin-left: 200px;
+}
+
+.inActive {
+  margin-left: 45px;
 }
 
 .top_section {

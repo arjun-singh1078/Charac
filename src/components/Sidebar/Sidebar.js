@@ -186,7 +186,9 @@ const Sidebar = (props) => {
           </div>
         </div>
       </motion.div>
-      <main>{props.children}</main>
+      <main style={{ marginLeft: isOpen ? "200px" : "45px" }}>
+        {props.children}
+      </main>
     </div>
   );
 };
