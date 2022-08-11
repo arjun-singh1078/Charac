@@ -94,14 +94,14 @@ const Sidebar = (props) => {
       width: 0,
       opacity: 0,
       transition: {
-        duration: 0.2,
+        duration: 0.1,
       },
     },
     show: {
       opacity: 1,
       width: "auto",
       transition: {
-        duration: 0.3,
+        duration: 0.2,
       },
     },
   };
@@ -109,7 +109,7 @@ const Sidebar = (props) => {
   return (
     <div className={"main_container"}>
       <motion.div
-        animate={{ width: isOpen ? "200px" : "45px" }}
+        animate={{ width: isOpen ? "" : "63px" }}
         className={"sidebar"}
       >
         <div className="top_section">
@@ -133,60 +133,76 @@ const Sidebar = (props) => {
         <div className="wrapper">
           <div className="group_set">
             <div className="first_set">
-              {firstDataSet.map((route) => (
-                <NavLink
-                  to={route.path}
-                  key={route.name}
-                  className="link"
-                  style={{ padding: isOpen ? "11px 20px" : "11px 10px" }}
-                >
-                  <div className="icon">{route.icon}</div>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_name"
+              <ul>
+                {firstDataSet.map((route) => (
+                  <li className={`link ${!isOpen ? "inActive" : ""}`}>
+                    <NavLink
+                      to={route.path}
+                      key={route.name}
+                      style={{ padding: isOpen ? " 8px 12px" : "8px 12px" }}
+                    >
+                      <div
+                        className="icon"
+                        style={{ minWidth: isOpen ? "35px" : "0px" }}
                       >
-                        {route.name}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
-              ))}
+                        {route.icon}
+                      </div>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            variants={showAnimation}
+                            initial="hidden"
+                            animate="show"
+                            exit="hidden"
+                            className="link_name"
+                          >
+                            {route.name}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="second_set">
-              {secondDataSet.map((route) => (
-                <NavLink
-                  to={route.path}
-                  key={route.name}
-                  className="link"
-                  style={{ padding: isOpen ? "11px 20px" : "11px 10px" }}
-                >
-                  <div className="icon">{route.icon}</div>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_name"
+              <ul>
+                {secondDataSet.map((route) => (
+                  <li className={`link ${!isOpen ? "inActive" : ""}`}>
+                    <NavLink
+                      to={route.path}
+                      key={route.name}
+                      style={{ padding: isOpen ? "8px  12px" : "" }}
+                    >
+                      <div
+                        className="icon"
+                        style={{ minWidth: isOpen ? "35px" : "0px" }}
                       >
-                        {route.name}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
-              ))}
+                        {route.icon}
+                      </div>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            variants={showAnimation}
+                            initial="hidden"
+                            animate="show"
+                            exit="hidden"
+                            className="link_name"
+                          >
+                            {route.name}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </motion.div>
-      <main style={{ marginLeft: isOpen ? "200px" : "45px" }}>
+      <main className={`${isOpen ? "isOpen" : "isClose"}`}>
         {props.children}
       </main>
     </div>

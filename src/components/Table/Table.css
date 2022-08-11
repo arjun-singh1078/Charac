@@ -8,13 +8,31 @@ table {
 th {
   width: 250px;
   text-align: center;
-  font-size: 20px;
   font-weight: bolder;
   padding: 15px 10px;
 }
 
 td {
   width: 250px;
-  font-size: 20px;
   text-align: center;
+}
+
+/* Media Queries  */
+
+@media screen and (max-width: 700px) {
+  th {
+    font-size: large;
+  }
+  td {
+    font-size: medium;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  th {
+    font-size: medium;
+  }
+  td {
+    font-size: small;
+  }
 }
