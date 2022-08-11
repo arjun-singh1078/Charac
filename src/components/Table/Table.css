@@ -5,17 +5,16 @@ table {
   color: #444;
 }
 
-tr {
-  margin-bottom: 20px;
-}
-
 th {
   width: 250px;
-  text-align: left;
+  text-align: center;
   font-size: 20px;
+  font-weight: bolder;
+  padding: 15px 10px;
 }
 
 td {
   width: 250px;
   font-size: 20px;
+  text-align: center;
 }
