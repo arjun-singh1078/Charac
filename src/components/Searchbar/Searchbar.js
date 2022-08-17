@@ -1,4 +1,7 @@
 import React from "react";
+// import { debounce } from "lodash";
+import { DebounceInput } from "react-debounce-input";
+
 import "./Searchbar.css";
 import Users from "../../CustormersList";
 import { useState } from "react";
@@ -26,12 +29,14 @@ const Searchbar = () => {
         <div className="col-sm-2 col-md-2 col-lg-2"></div>
         <div className="col-sm-8 col-md-8 col-lg-8">
           <form className="d-flex" role="search">
-            <input
+            <DebounceInput
+              min={5}
               className="form-control"
               type="search"
               placeholder="Search"
               aria-label="Search"
               value={inputChange}
+              debounceTimeout={500}
               onChange={inputChangeHandler}
             />
           </form>
